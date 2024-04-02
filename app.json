@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "step-counter-test",
+    "name": "Step Counter",
     "slug": "step-counter-test",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -22,7 +22,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.ACTIVITY_RECOGNITION",
+        "android.permission.BODY_SENSORS_BACKGROUND"
+      ],
+      "features": [
+        "android.hardware.sensor.stepcounter",
+        "android.hardware.sensor.accelerometer"
+      ],
+      "package": "com.stepcounter.aykut"
     },
     "web": {
       "bundler": "metro",
@@ -30,10 +39,29 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "newArchEnabled": true,
+            "kotlinGradlePluginVersion": "1.9.0",
+            "kotlinVersion": "1.9.0"
+          }
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "a1129e9b-fbc1-4086-9bea-14e09744ba18"
+      }
+    },
+    "owner": "4ykut"
   }
 }
